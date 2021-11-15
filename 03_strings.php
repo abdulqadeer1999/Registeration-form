@@ -32,7 +32,7 @@ $length = strlen($str);
 
   echo "The search for ng in this string is  ".strpos($str ,'ng') ;
 
-  echo "The replace string is  ".str_replace('ing' ,'ess',$str) ;
+  echo "The replace string is  ".str_replace('ng' ,'es',$str) ;
 
 
     ?>

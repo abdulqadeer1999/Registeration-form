@@ -13,7 +13,7 @@
 
     <?php
 
-    define('PI',3.14); // constant
+    define('pi',3.14); // constant
 
       $num1 = 44; 
       $num2 =80; 
@@ -128,7 +128,7 @@ $var = true;
 echo var_dump($var);
 echo "<br>";
 
-echo PI; // it is constant which is used in too of the program
+echo pi; // it is constant which is used in too of the program
 
 
 ?>

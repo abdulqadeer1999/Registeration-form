@@ -171,7 +171,7 @@ while($row = mysqli_fetch_array($result)) {
       <td><?php echo $row["gender"]; ?></td>
       <td><?php echo $row["otherinfo"]; ?></td>
       <td>
-      <td><a href="index.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+      <td><a href="index.php?id=<?php echo $row["id"]; ?>" >Delete</a></td>
       <td><a href="update.php?id=<?php echo $row["id"]; ?>">Update</a></td>
 
 

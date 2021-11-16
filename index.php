@@ -30,8 +30,8 @@ $age = $_POST['age'];
 $gender = $_POST['gender'];
 $desc = $_POST['desc'];
 
-$sql = "INSERT INTO trip (name, email, phone, age, gender, otherinfo)
-VALUES ('$name', '$email', '$phone','$age','$gender','$desc')";
+$sql = "INSERT INTO trip ( name, email, phone, age, gender, otherinfo)
+VALUES ( ,'$name', '$email', '$phone','$age','$gender','$desc')";
 
 
 // execute the query 
@@ -44,13 +44,16 @@ VALUES ('$name', '$email', '$phone','$age','$gender','$desc')";
      echo "ERROR: $sql <br> $conn->error";
  }
 
+ 
+
+ 
  //close databse connection
  $conn->close();
 }
-?>
 
 
-<?php
+
+
 
 $server= "localhost";
 $username = "root";
@@ -64,6 +67,17 @@ $conn = mysqli_connect($server,$username,$password,$database);
 if(!$conn) {
     die("connection to this database failed due to" .$mysqli_connect_error());
 }
+
+
+// Deleting Functionality
+$sql = "DELETE FROM trip WHERE id='" . $_GET["id"] . "'";
+
+if (mysqli_query($conn, $sql)) {
+  echo "Record deleted successfully";
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+
 // include_once 'trip';
 $result = mysqli_query($conn,"SELECT * FROM trip");
 if (mysqli_num_rows($result) > 0) {
@@ -120,7 +134,7 @@ if (mysqli_num_rows($result) > 0) {
         
   <thead>
     <tr>
-      <th scope="col">S No</th>
+      <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
@@ -140,15 +154,22 @@ while($row = mysqli_fetch_array($result)) {
       <td>Otto</td>
       <td>@mdo</td>
     </tr> -->
+
+
     <tr>
-      <th scope="row"><?php echo $row["s no"]; ?></th>
+      <th scope="row"><?php echo $row["id"]; ?></th>
       <td><?php echo $row["name"]; ?></td>
       <td><?php echo $row["email"]; ?></td>
       <td><?php echo $row["phone"]; ?></td>
       <td><?php echo $row["age"]; ?></td>
       <td><?php echo $row["gender"]; ?></td>
       <td><?php echo $row["otherinfo"]; ?></td>
+      <td>
+      <td><a href="index.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+
+    </td>
     </tr>
+   
     <?php
 $i++;
 }

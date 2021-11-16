@@ -81,7 +81,7 @@ if (mysqli_query($conn, $sql)) {
 
 
 
-// update data
+
 
 
 // include_once 'trip';

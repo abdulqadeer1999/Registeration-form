@@ -31,7 +31,7 @@ $gender = $_POST['gender'];
 $desc = $_POST['desc'];
 
 $sql = "INSERT INTO trip ( name, email, phone, age, gender, otherinfo)
-VALUES ( ,'$name', '$email', '$phone','$age','$gender','$desc')";
+VALUES ('$name', '$email', '$phone','$age','$gender','$desc')";
 
 
 // execute the query 
@@ -77,6 +77,11 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
 }
+
+
+
+// update data
+
 
 // include_once 'trip';
 $result = mysqli_query($conn,"SELECT * FROM trip");
@@ -166,6 +171,9 @@ while($row = mysqli_fetch_array($result)) {
       <td><?php echo $row["otherinfo"]; ?></td>
       <td>
       <td><a href="index.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+      <td><a href="update.php?id=<?php echo $row["id"]; ?>">Update</a></td>
+
+
 
     </td>
     </tr>

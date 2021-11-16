@@ -1,6 +1,6 @@
 <?php
 
-
+$insert = false;
    $servername='localhost';
    $username='root';
    $password='';
@@ -26,9 +26,23 @@ $row= mysqli_fetch_array($result);
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
+<div class="container">
+        <h1>Welcome to AQ US Trip Form</h1>
+        <p>Enter your details to confirm your registration</p>
+
+        
+        <?php 
+
+    //    if($insert == true) {
+    //    echo '<p class="submit-msg">Record Modified Successfully</p>';
+    //    }
+
+    //    ?>
 <form name="frmUser" method="post" action="">
-<div><?php if(isset($message)) { echo $message; } ?>
-</div>
+ <div><?php if(isset($message)) { echo $message; } ?>
+</div> 
 <div style="padding-bottom:5px;">
 <a href="./index.php">Employee List</a>
 </div>
@@ -43,6 +57,7 @@ $row= mysqli_fetch_array($result);
     <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Enter other information" value="<?php echo $row['desc']; ?>" required></textarea>
     <button class="btn">Submit</button>
 
+    </div>
 </form>
 </body>
 </html>
